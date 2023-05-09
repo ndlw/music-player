@@ -22,82 +22,84 @@ const randomBtn = $('.btn-random')
 const replayBtn = $('.btn-replay')
 const active = $('.active')
 const playList = $('#songs-list')
-
+const heart = $('.heart')
+const btnSongList = $('.song-list')
 
 
 const app = {
     crIndex: 0,
     songs: [
-        {
-            name: 'Anh đã ổn hơn',
-            singer: 'MCK',
-            path: 'AUDIO/audio_1.mp3',
-            image: 'IMG/image_1.jpg'
+        {   
+            name: 'Ta Đã Từng Yêu Nhau Chưa ?',
+            singer: 'Hào',
+            path: 'AUDIO/audio_13.mp3',
+            image: 'IMG/image_13.jpg'
         },
         {
-            name: 'Tại vì sao',
+            name: 'Tại Vì Sao',
             singer: 'MCK',
             path: 'AUDIO/audio_2.mp3',
             image: 'IMG/image_2.jpg'
         },
         {
-            name: 'Con chim trên cành',
+            name: 'Con Chim Trên Cành',
             singer: 'Tùng',
             path: 'AUDIO/audio_3.mp3',
             image: 'IMG/image_3.jpg'
         },
         {
-            name: 'Xin lỗi',
-            singer: 'Thắng',
+            name: 'Xin Lỗi',
+            singer: 'RPT Orijinn x Ronboogz',
             path: 'AUDIO/audio_4.mp3',
             image: 'IMG/image_4.jpg'
         }, {
+            name: 'Cold Dont',
+            singer: 'RPT Orijinn x Ronboogz',
+            path: 'AUDIO/audio_5.mp3',
+            image: 'IMG/image_5.jpg'
+        },{
+            name: 'Dont Côi',
+            singer: 'RPT Orijinn x Ronboogz',
+            path: 'AUDIO/audio_6.mp3',
+            image: 'IMG/image_6.jpg'
+        },{
+            name: 'Lan Man',
+            singer: 'RPT Orijinn x Ronboogz',
+            path: 'AUDIO/audio_7.mp3',
+            image: 'IMG/image_7.jpg'
+        },{
+            name: 'Warking My Way',
+            singer: 'Song Tung MTP',
+            path: 'AUDIO/audio_8.mp3',
+            image: 'IMG/image_8.jpg'
+        },{
+            name: 'Vì Anh Đâu ...',
+            singer: 'Vũ',
+            path: 'AUDIO/audio_9.mp3',
+            image: 'IMG/image_9.jpg'
+        },
+        {
+            name: 'Không Yêu Xin ...',
+            singer: 'Umie',
+            path: 'AUDIO/audio_10.mp3',
+            image: 'IMG/image_10.jpg'
+        },{
+            name: 'Reeves',
+            singer: 'HieuThuHai',
+            path: 'AUDIO/audio_11.mp3',
+            image: 'IMG/image_11.jpg'
+        },{
+            name: 'Có Em',
+            singer: 'Madihu',
+            path: 'AUDIO/audio_12.mp3',
+            image: 'IMG/image_12.jpg'
+        },{
             name: 'Anh đã ổn hơn',
             singer: 'MCK',
             path: 'AUDIO/audio_1.mp3',
             image: 'IMG/image_1.jpg'
-        },
-        {
-            name: 'Tại vì sao',
-            singer: 'MCK',
-            path: 'AUDIO/audio_2.mp3',
-            image: 'IMG/image_2.jpg'
-        },
-        {
-            name: 'Con chim trên cành',
-            singer: 'Tùng',
-            path: 'AUDIO/audio_3.mp3',
-            image: 'IMG/image_3.jpg'
-        },
-        {
-            name: 'Xin lỗi',
-            singer: 'Thắng',
-            path: 'AUDIO/audio_4.mp3',
-            image: 'IMG/image_4.jpg'
-        }, {
-            name: 'Anh đã ổn hơn',
-            singer: 'MCK',
-            path: 'AUDIO/audio_1.mp3',
-            image: 'IMG/image_1.jpg'
-        },
-        {
-            name: 'Tại vì sao',
-            singer: 'MCK',
-            path: 'AUDIO/audio_2.mp3',
-            image: 'IMG/image_2.jpg'
-        },
-        {
-            name: 'Con chim trên cành',
-            singer: 'Tùng',
-            path: 'AUDIO/audio_3.mp3',
-            image: 'IMG/image_3.jpg'
-        },
-        {
-            name: 'Xin lỗi',
-            singer: 'Thắng',
-            path: 'AUDIO/audio_4.mp3',
-            image: 'IMG/image_4.jpg'
         }
+        
     ],
     render: function () {
         htmls = this.songs.map((song, index) => {
@@ -122,6 +124,33 @@ const app = {
     },
     handleEvent: function () {
         const withImg = cdThumb.offsetWidth
+        //click trái tim
+        heart.onclick = () => {
+            if (heart.classList.contains("fa-regular")) {
+                heart.classList.add("fa-solid")
+                heart.classList.remove("fa-regular")
+                heart.style.color = "red"
+            } else {
+                heart.classList.add("fa-regular")
+                heart.classList.remove("fa-solid")
+                heart.style.color = "#ffff"            
+            }
+
+        }
+
+        // click để hiện lên list nhạc
+        // btnSongList.onclick = () => {
+        //     if(playList.classList.contains('show') == false){
+        //         btnSongList.style.color = 'black'
+        //         playList.classList.add('show')
+        //         playList.scrollIntoView
+        //     }else{
+        //         btnSongList.style.color = '#ffff'
+
+        //         playList.classList.remove('show')
+        //     }
+            
+        // }
         //xử lý CD quay / dừng
         cdThumbAnimate = cdThumb.animate([
             { transform: 'rotate(360deg)' }
@@ -132,12 +161,12 @@ const app = {
         cdThumbAnimate.pause()
 
         // thu phóng IMG SONG
-        document.onscroll = function () {
-            const scrollTop = window.scrollY || document.documentElement.scrollTop
-            const newWithImg = withImg - scrollTop
-            cdThumb.style.width = newWithImg > 0 ? newWithImg + 'px' : 0
-            cdThumb.style.opacity = newWithImg / withImg
-        }
+        // document.onscroll = function () {
+        //     const scrollTop = window.scrollY || document.documentElement.scrollTop
+        //     const newWithImg = withImg - scrollTop
+        //     cdThumb.style.width = newWithImg > 0 ? newWithImg + 'px' : 0
+        //     cdThumb.style.opacity = newWithImg / withImg
+        // }
         // click play
         playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
         playBtn.onclick = function () {
@@ -222,7 +251,7 @@ const app = {
                 console.log(app.crIndex)
                 app.loadCurrenSong()
                 app.render()
-                // app.scrollToActive()
+                app.scrollToActive()
 
                 audio.play()
             }
@@ -295,16 +324,16 @@ const app = {
     },
     scrollToActive: function () {
         // if (this.crIndex == 0) {
-        //     window.scrollTo({
+        //     $('container-list').scrollTo({
         //         top: 0
         //     })
         // } else {
-        //     window.scrollTo({
+        //     $('container-list').scrollTo({
         //         top: (this.crIndex) * 92 + 210
         //     })
         // }
-        setTimeout(()=>{ $('.active').scrollIntoView({ behavior : 'smooth', block: 'end', }) },100) 
-        
+        setTimeout(() => { $('.active').scrollIntoView({ behavior: 'smooth', block: 'start', }) }, 100)
+
 
     },
     start: function () {
