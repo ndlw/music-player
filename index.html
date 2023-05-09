@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSIC PLAYER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrapper">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="AUDIO/a peaceful place. [lofi - jazzhop - chillhop mix].mp4" type="video/mp4">
+          </video> -->
+        <!-- <div id="menu"></div> -->
+        <div class="container-controler container">
+            <div id="now-playing">
+                <p>now playing:</p>
+                <h2 class="song-name">song name</h2>
+            </div>
+            <div id="song-img">
+                <img  class="img-method" src="IMG/image_4.jpg" alt="">
+            </div>
+            <div id="controler">
+                <ul>
+                    <li class="btn-replay"><i class="fa-solid fa-rotate-right"></i></li>
+                    <li class="btn-back"><i class="fa-solid fa-backward-step"></i></li>
+                    <li class="play-pause"></li>
+                    <li class="btn-next"><i class="fa-solid fa-forward-step"></i></li>
+                    <li class="btn-random"><i class="fa-solid fa-shuffle"></i></li> 
+                </ul>
+            </div>
+            <input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
+            <audio id="audio"src=""></audio>
+        </div>
+        <div class="container-list container">
+           <ul id="songs-list">
+              
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="player.js"></script>
+</body>
+</html>
