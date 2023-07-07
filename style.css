@@ -13,9 +13,11 @@ background-image: url(IMG/e56f2107273ea520452f27c4a67d5ddc.jpg);
 }
 .wrapper{
   position: fixed;
-   left: 50%;
-   top: 420px;
-   transform: translate(-50%, -50%);
+  margin: 0 10px;
+  left: 50%;
+  top: 420px;
+  transform: translate(-50%, -50%);
+    
 }
 
 #menu{
