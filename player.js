@@ -11,6 +11,8 @@
 
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
+const wrapper = $('.wrapper')
+console.log(wrapper)
 const heading = $('#now-playing h2')
 const audio = $('#audio')
 const cdThumb = $('#song-img img')
@@ -173,7 +175,8 @@ const app = {
             if (this.innerHTML == '<i class="fa-solid fa-play"></i>') {
                 playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
                 audio.play()
-                cdThumbAnimate.play()
+        cdThumbAnimate.play()
+
             } else {
                 playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
                 audio.pause()
@@ -191,11 +194,15 @@ const app = {
                 if (progressPercent == 100 && replayBtn.style.color != 'orangered') {
                     app.nextSong()
                     audio.play()
+        cdThumbAnimate.play()
+
                 }
                 // phát lại bài
                 if (progressPercent == 100 && replayBtn.style.color == 'orangered') {
                     progressPercent = 0
                     audio.play()
+        cdThumbAnimate.play()
+
                 }
             }
 
@@ -254,6 +261,8 @@ const app = {
                 app.scrollToActive()
 
                 audio.play()
+        cdThumbAnimate.play()
+
             }
         }
 
@@ -273,6 +282,8 @@ const app = {
         this.render()
         this.scrollToActive()
         audio.play()
+        cdThumbAnimate.play()
+
     },
     nextSong: function () {
         this.crIndex++
@@ -284,6 +295,8 @@ const app = {
         this.render()
         this.scrollToActive()
         audio.play()
+        cdThumbAnimate.play()
+
         // scroll to the song playing
         //  if (this.crIndex != 0) {
         //     window.scrollTo({
@@ -300,6 +313,8 @@ const app = {
         this.render()
         this.scrollToActive()
         audio.play()
+        cdThumbAnimate.play()
+
 
 
         // scroll to the song playing
@@ -333,6 +348,7 @@ const app = {
         //     })
         // }
         setTimeout(() => { $('.active').scrollIntoView({ behavior: 'smooth', block: 'start', }) }, 100)
+
 
 
     },
